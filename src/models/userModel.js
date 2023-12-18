@@ -55,7 +55,7 @@ const updateUser = async (body, id) => {
   return queryUser;
 };
 
-const deleteUser = async (id) => {
+const destroyUser = async (id) => {
   const queryUser = await connectDb.query(
     `DELETE FROM users WHERE users.users_id=${id}`,
   );
@@ -69,5 +69,5 @@ module.exports = {
   createUser,
   loginUser,
   updateUser,
-  deleteUser,
+  destroyUser,
 };

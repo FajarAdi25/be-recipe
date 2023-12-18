@@ -17,7 +17,7 @@ const createComment = async (body) => {
   return queryComment;
 };
 
-const deleteComment = async (id) => {
+const destroyComment = async (id) => {
   const queryComment = await connectDb.query(
     `DELETE FROM comment WHERE comment.comment_id = ${id}`,
   );
@@ -27,5 +27,5 @@ const deleteComment = async (id) => {
 module.exports = {
   getAllComment,
   createComment,
-  deleteComment,
+  destroyComment,
 };

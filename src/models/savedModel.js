@@ -16,7 +16,7 @@ const createSaved = async (body) => {
   return query;
 };
 
-const deleteSaved = async (id) => {
+const destroySaved = async (id) => {
   const query = await connectDb.query(
     `DELETE FROM saved WHERE saved.saved_id = ${id}`,
   );
@@ -26,5 +26,5 @@ const deleteSaved = async (id) => {
 module.exports = {
   getSaved,
   createSaved,
-  deleteSaved,
+  destroySaved,
 };

@@ -31,7 +31,7 @@ const updateRecipe = async (body, id) => {
   return queryRecipe;
 };
 
-const deleteRecipe = async (id) => {
+const destroyRecipe = async (id) => {
   const queryRecipe = await connectDb.query(
     `DELETE FROM food_recipes WHERE food_recipes.recipes_id = ${id}`,
   );
@@ -69,7 +69,7 @@ module.exports = {
   findIdRecipe,
   createRecipe,
   updateRecipe,
-  deleteRecipe,
+  destroyRecipe,
   getRecipeAndQuery,
   countPage,
 };

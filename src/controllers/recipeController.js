@@ -1,7 +1,7 @@
 /* eslint-disable no-restricted-syntax */
 const { response, responseError } = require('../helpers/response');
 const {
-  createRecipe, findIdRecipe, updateRecipe, deleteRecipe, getRecipeAndQuery,
+  createRecipe, findIdRecipe, updateRecipe, destroyRecipe, getRecipeAndQuery,
 } = require('../models/recipeModel');
 
 const recipeController = {
@@ -70,7 +70,7 @@ const recipeController = {
       if (!recipeId.rowCount) {
         throw new Error('recipe id is not found');
       }
-      await deleteRecipe(id);
+      await destroyRecipe(id);
       response(res, null, 200, 'delete successful');
     } catch (error) {
       responseError(res, 400, error.message);

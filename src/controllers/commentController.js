@@ -1,5 +1,5 @@
 const { response, responseError } = require('../helpers/response');
-const { getAllComment, createComment, deleteComment } = require('../models/commentModel');
+const { getAllComment, createComment, destroyComment } = require('../models/commentModel');
 
 const commentController = {
   allComment: async (req, res) => {
@@ -22,7 +22,7 @@ const commentController = {
   deleteComment: async (req, res) => {
     try {
       const id = req.params.comment_id;
-      const result = await deleteComment(id);
+      const result = await destroyComment(id);
       response(res, result.rows, 200, 'delete successful');
     } catch (error) {
       responseError(res, 400, error.message);

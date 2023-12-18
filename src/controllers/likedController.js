@@ -1,5 +1,5 @@
 const { responseError, response } = require('../helpers/response');
-const { getLiked, createLiked, deleteLiked } = require('../models/likedModel');
+const { getLiked, createLiked, destroyLiked } = require('../models/likedModel');
 
 const likedController = {
   allLiked: async (req, res) => {
@@ -22,7 +22,7 @@ const likedController = {
   deleteLiked: async (req, res) => {
     try {
       const id = req.params.liked_id;
-      const result = await deleteLiked(id);
+      const result = await destroyLiked(id);
       response(res, result.rows, 200, 'delete liked successful');
     } catch (error) {
       responseError(res, 400, error.message);

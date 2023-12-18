@@ -1,5 +1,5 @@
 const { responseError, response } = require('../helpers/response');
-const { getSaved, createSaved, deleteSaved } = require('../models/savedModel');
+const { getSaved, createSaved, destroySaved } = require('../models/savedModel');
 
 const savedController = {
   allSaved: async (req, res) => {
@@ -22,7 +22,7 @@ const savedController = {
   deleteSaved: async (req, res) => {
     try {
       const id = req.params.saved_id;
-      const result = await deleteSaved(id);
+      const result = await destroySaved(id);
       response(res, result.rows, 200, 'delete saved successful');
     } catch (error) {
       responseError(res, 400, error.message);

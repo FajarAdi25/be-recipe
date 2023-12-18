@@ -16,7 +16,7 @@ const createLiked = async (body) => {
   return query;
 };
 
-const deleteLiked = async (id) => {
+const destroyLiked = async (id) => {
   const query = await connectDb.query(
     `DELETE FROM liked WHERE liked.liked_id = ${id}`,
   );
@@ -26,5 +26,5 @@ const deleteLiked = async (id) => {
 module.exports = {
   getLiked,
   createLiked,
-  deleteLiked,
+  destroyLiked,
 };

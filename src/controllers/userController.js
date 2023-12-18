@@ -1,6 +1,6 @@
 const { response, responseError } = require('../helpers/response');
 const {
-  findEmail, createUser, loginUser, findId, updateUser, deleteUser, getUserAndQuery,
+  findEmail, createUser, loginUser, findId, updateUser, destroyUser, getUserAndQuery,
 } = require('../models/userModel');
 
 const userController = {
@@ -80,7 +80,7 @@ const userController = {
       if (!userId.rowCount) {
         throw new Error('user id not found');
       }
-      await deleteUser(id);
+      await destroyUser(id);
       response(res, null, 200, 'delete successful');
     } catch (error) {
       responseError(res, 400, error.message);

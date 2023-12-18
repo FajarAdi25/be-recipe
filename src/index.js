@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-console */
 const express = require('express');
 const cors = require('cors');
@@ -10,7 +11,10 @@ const likedRouter = require('./routes/likedRoute');
 const app = express();
 const port = 2000;
 
-app.use(cors());
+app.use(cors({
+  credentials: true,
+  origin: [],
+}));
 app.use(express.json());
 
 app.use(userRouter);
@@ -20,6 +24,7 @@ app.use(commentRouter);
 app.use(likedRouter);
 
 app.use(express.static('public'));
+
 app.get('/', (req, res) => {
   res.send('API has running');
 });
